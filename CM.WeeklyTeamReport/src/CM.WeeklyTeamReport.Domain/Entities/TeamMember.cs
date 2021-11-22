@@ -8,16 +8,18 @@ namespace CM.WeeklyTeamReport.Domain
 {
     public class TeamMember
     {
+        public int TeamMemberId { get; set; }
+        public int FK_CompanyId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public TypeOfTeam typeOfTeam { get; set; }
+        public List<WeeklyReport> teamMemberReports { get; set; } = new();
         public TeamMember(string FirstName, string LastName, TypeOfTeam typeOfTeam)
         {
             this.FirstName = FirstName; this.LastName = LastName; this.typeOfTeam = typeOfTeam;
-            teamMemberReports = new List<WeeklyReport>();
         }
         
-        public string FirstName { get; private set; }
-        public string LastName { get; private set; }
-        public TypeOfTeam typeOfTeam{ get; private set; }
-        public List<WeeklyReport> teamMemberReports { get; private set; }
+        
         public void CreateMemberReport(WeeklyReport report)
         {
             teamMemberReports.Add(report);
@@ -36,6 +38,6 @@ namespace CM.WeeklyTeamReport.Domain
     }
     public enum TypeOfTeam
     {
-        Immediate, Extended
+        none,Immediate, Extended
     }
 }

@@ -18,7 +18,7 @@ namespace CM.WeeklyTeamReport.Domain.Tests
         public void ShouldBeAbleToCreateCompany()
         {
             TeamMember teamMember = new TeamMember("Ilya", "Krasnoperov", TypeOfTeam.Immediate);
-            Company company = new Company("ANKO Corp", new List<TeamMember> { teamMember });
+            Company company = new Company("ANKO Corp", DateTime.Now, new List<TeamMember> { teamMember });
             company.CompanyName = "Corp ANKO";
             Assert.Equal("Corp ANKO", company.CompanyName);
             company.TeamMembers[0].ChangeInformation(null,null);

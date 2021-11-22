@@ -12,14 +12,16 @@ namespace CM.WeeklyTeamReport.Domain
             Condition workload, string workloadMsg, string YourHigh, string YourLow, string AnythingElse,
             DateTime dateTime)
         {
-            this.Morale = morale; this.stress = stress; this.workload = workload; this.dateTime = dateTime;
+            this.Morale = morale; this.stress = stress; this.workload = workload; this.dateOfRepot = dateTime;
             this.moraleMsg = moraleMsg; this.stressMsg = stressMsg; this.workloadMsg = workloadMsg;
             this.YourHigh = YourHigh; this.YourLow = YourLow; this.AnythingElse = AnythingElse;
         }
+        public int ReportId { get; set; }
+        public int FK_TeamMemberId { get; set; }
         public Condition Morale { get; private set; }
         public Condition stress { get; private set; }
         public Condition workload { get; private set; }
-        public DateTime dateTime { get; private set; }
+        public DateTime dateOfRepot { get; private set; }
         public string moraleMsg { get; private set; }
         public string stressMsg { get; private set; }
         public string workloadMsg { get; private set; }
@@ -29,7 +31,7 @@ namespace CM.WeeklyTeamReport.Domain
     }
     public enum Condition
     {
-        VeryLow, Low, Okay, Good, Great
+        none,VeryLow, Low, Okay, Good, Great
     }
 }
 
