@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CM.WeeklyTeamReport.Domain.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CM.WeeklyTeamReport.Domain.IntegrationTests", "test\CM.WeeklyTeamReport.Domain.IntegrationTests\CM.WeeklyTeamReport.Domain.IntegrationTests.csproj", "{56BF8392-85EE-487B-BE11-C3CD1593DF7B}"
 EndProject
-Project("{00D1A9C2-B5F0-4AF3-8072-F6C62B433612}") = "CM.WeeklyTeamReport.Database", "src\CM.WeeklyTeamReport.Database\CM.WeeklyTeamReport.Database.sqlproj", "{9600E672-B3E2-4D51-B008-44EE95A6DA46}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
