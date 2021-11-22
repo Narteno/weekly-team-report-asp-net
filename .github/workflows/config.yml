@@ -15,7 +15,7 @@ jobs:
           dotnet-version: 5.0.x
       - name: Restore dependencies
         working-directory: ./CM.WeeklyTeamReport
-        run: dotnet restore
+        run: dotnet restore --filter FullyQualifiedName\!~Database
       - name: Build
         working-directory: ./CM.WeeklyTeamReport
         run: dotnet build --no-restore
