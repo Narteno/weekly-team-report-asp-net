@@ -14,6 +14,11 @@ namespace CM.WeeklyTeamReport.Domain
         public string LastName { get; set; }
         public TypeOfTeam typeOfTeam { get; set; }
         public List<WeeklyReport> teamMemberReports { get; set; } = new();
+        public TeamMember(int teamMemberId, int companyId, string FirstName, string LastName, TypeOfTeam typeOfTeam)
+        {
+            TeamMemberId = teamMemberId; FK_CompanyId = companyId;
+            this.FirstName = FirstName; this.LastName = LastName; this.typeOfTeam = typeOfTeam;
+        }
         public TeamMember(string FirstName, string LastName, TypeOfTeam typeOfTeam)
         {
             this.FirstName = FirstName; this.LastName = LastName; this.typeOfTeam = typeOfTeam;

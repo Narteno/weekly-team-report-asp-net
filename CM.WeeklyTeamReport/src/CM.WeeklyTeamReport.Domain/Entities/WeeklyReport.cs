@@ -12,7 +12,16 @@ namespace CM.WeeklyTeamReport.Domain
             Condition workload, string workloadMsg, string YourHigh, string YourLow, string AnythingElse,
             DateTime dateTime)
         {
-            this.Morale = morale; this.stress = stress; this.workload = workload; this.dateOfRepot = dateTime;
+            Morale = morale; this.stress = stress; this.workload = workload; this.dateOfRepot = dateTime;
+            this.moraleMsg = moraleMsg; this.stressMsg = stressMsg; this.workloadMsg = workloadMsg;
+            this.YourHigh = YourHigh; this.YourLow = YourLow; this.AnythingElse = AnythingElse;
+        }
+        public WeeklyReport(int reportId, int teamMemberId, Condition morale, string moraleMsg, Condition stress, string stressMsg,
+            Condition workload, string workloadMsg, string YourHigh, string YourLow, string AnythingElse,
+            DateTime dateTime)
+        {
+            ReportId = reportId; FK_TeamMemberId = teamMemberId;
+            Morale = morale; this.stress = stress; this.workload = workload; this.dateOfRepot = dateTime;
             this.moraleMsg = moraleMsg; this.stressMsg = stressMsg; this.workloadMsg = workloadMsg;
             this.YourHigh = YourHigh; this.YourLow = YourLow; this.AnythingElse = AnythingElse;
         }

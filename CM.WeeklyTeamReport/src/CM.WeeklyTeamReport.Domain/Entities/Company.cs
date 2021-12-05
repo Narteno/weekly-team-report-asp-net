@@ -14,12 +14,11 @@ namespace CM.WeeklyTeamReport.Domain
             this.CompanyName = CompanyName;
             this.JoinedDate = JoinedDate;
         }
-        public Company(string CompanyName, DateTime JoinedDate, List<TeamMember> teamMembers)
+        public Company(int companyId, string CompanyName, DateTime JoinedDate)
         {
-            TeamMembers = teamMembers;
+            CompanyId = companyId;
             this.CompanyName = CompanyName;
             this.JoinedDate = JoinedDate;
         }
-
     }
 }

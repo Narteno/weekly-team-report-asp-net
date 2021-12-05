@@ -61,6 +61,30 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
             }
             return null;
         }
+
+        public List<TeamMember> ReadAllByParentId(int companyId)
+        {
+            List<TeamMember> teamMembers = new List<TeamMember>();
+            using (var connection = GetSqlConnection(connectionString))
+            {
+                var command = new SqlCommand("SELECT * FROM TeamMembers " +
+                                             "WHERE CompanyId = @CompanyId",
+                                             connection);
+
+                SqlParameter CompanyId = new SqlParameter("@CompanyId", SqlDbType.Int)
+                {
+                    Value = companyId
+                };
+                command.Parameters.Add(CompanyId);
+
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    teamMembers.Add(MapMember(reader));
+                }
+            }
+            return teamMembers;
+        }
         public TeamMember Read(int TeamMemberId)
         {
             using (var connection = GetSqlConnection(connectionString))
@@ -119,6 +143,11 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
                 command.Parameters.Add(teamMemberId);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<TeamMember> ReadAll()
+        {
+            throw new NotImplementedException();
         }
     }
 }

@@ -23,9 +23,9 @@ namespace CM.WeeklyTeamReport.Domain.IntegrationTests
         public void ShouldBeAbleToReadCompanyFromDatabase()
         {
             var companyRepository = new CompanyRepository();
-            var companyFromDB = companyRepository.Read(1);
-            Assert.Equal("ANKO",companyFromDB.CompanyName);
-            Assert.True(companyFromDB.CompanyId == 1);
+            var companyFromDB = companyRepository.Read(4);
+            Assert.Equal("ANKO", companyFromDB.CompanyName);
+            Assert.True(companyFromDB.CompanyId == 4);
         }
         [Fact]
         public void ShouldBeAbleToUpdateCompanyFromDatabase()

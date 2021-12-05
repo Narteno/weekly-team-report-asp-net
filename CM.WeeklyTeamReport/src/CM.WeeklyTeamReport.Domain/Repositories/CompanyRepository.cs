@@ -22,6 +22,23 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
             return new Company(reader["Name"].ToString(), (DateTime)reader["JoinedDate"])
             { CompanyId = (int)reader["CompanyId"]};
         }
+        public List<Company> ReadAll()
+        {
+            List<Company> companies = new();
+            using (var connection = GetSqlConnection(connectionString))
+            {
+                var command = new SqlCommand("Select * From Company", connection);
+
+
+                var reader = command.ExecuteReader();
+                while (reader.Read())
+                {
+                    var company = MapCompany(reader);
+                    companies.Add(company);
+                }
+            }
+            return companies;
+        }
         public Company Create(Company company)
         {
             using(var connection = GetSqlConnection(connectionString))
@@ -106,6 +123,11 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
                 command.Parameters.Add(CompanyId);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<Company> ReadAllByParentId(int entityId)
+        {
+            throw new NotImplementedException();
         }
     }
 }

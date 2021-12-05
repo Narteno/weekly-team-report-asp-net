@@ -102,6 +102,10 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
             }
             return null;
         }
+        public List<WeeklyReport> ReadAll()
+        {
+            return new();
+        }
         public WeeklyReport Read(int ReportId)
         {
             using (var connection = GetSqlConnection(connectionString))
@@ -160,6 +164,11 @@ namespace CM.WeeklyTeamReport.Domain.Repositories
                 command.Parameters.Add(reportId);
                 command.ExecuteNonQuery();
             }
+        }
+
+        public List<WeeklyReport> ReadAllByParentId(int entityId)
+        {
+            throw new NotImplementedException();
         }
     }
 }
